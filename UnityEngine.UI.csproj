@@ -59,19 +59,20 @@
     <UnityVersion>2021.3.45f2</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="/Users/Timo/.vscode/extensions/visualstudiotoolsforunity.vstuc-1.2.2/Analyzers/Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="/Users/Timo/.vscode/extensions/visualstudiotoolsforunity.vstuc-1.3.1/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Image.cs" />
     <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs" />
     <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Layout/HorizontalLayoutGroup.cs" />
     <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Slider.cs" />
+    <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Toggle.cs" />
+    <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Mask.cs" />
     <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Layout/ContentSizeFitter.cs" />
     <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/ScrollRect.cs" />
     <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Layout/LayoutElement.cs" />
-    <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Mask.cs" />
-    <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Toggle.cs" />
     <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Layout/CanvasScaler.cs" />
+    <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Dropdown.cs" />
     <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIElements/PanelRaycaster.cs" />
     <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/IGraphicEnabledDisabled.cs" />
     <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Selectable.cs" />
@@ -119,7 +120,6 @@
     <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" />
     <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventTrigger.cs" />
     <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/FontData.cs" />
-    <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Dropdown.cs" />
     <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/MaskUtilities.cs" />
     <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/GraphicRegistry.cs" />
     <Compile Include="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/CanvasUpdateRegistry.cs" />

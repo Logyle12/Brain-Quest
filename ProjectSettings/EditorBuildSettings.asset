@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/GameSelection.unity
     guid: 68da38b2f6c2aff4fa3fb7ca795eb5d4
   - enabled: 1
-    path: Assets/Scenes/English Gameplay/EnglishLevels.unity
+    path: Assets/Scenes/Levels.unity
     guid: 75f595e7dd66d4049b9f9eefc71026e3
   - enabled: 1
-    path: Assets/Scenes/English Gameplay/Spelling/Level 1/QuizScene.unity
+    path: Assets/Scenes/QuizScene.unity
     guid: de4bbcd25a64740458bc5e76ece59c33
   - enabled: 1
     path: Assets/Scenes/Maths Gameplay/MathLevels.unity

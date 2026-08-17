@@ -59,10 +59,11 @@
     <UnityVersion>2021.3.45f2</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="/Users/Timo/.vscode/extensions/visualstudiotoolsforunity.vstuc-1.2.2/Analyzers/Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="/Users/Timo/.vscode/extensions/visualstudiotoolsforunity.vstuc-1.3.1/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/UAP/Scripts/UI Components/AccessibleUIGroupRoot.cs" />
+    <Compile Include="Assets/Scripts/SettingsPanelController.cs" />
     <Compile Include="Assets/LeanTween/Framework/LeanTween.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/LogoCinematic.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralCameraShake.cs" />
@@ -71,16 +72,14 @@
     <Compile Include="Assets/LeanTween/Framework/LeanTweenExt.cs" />
     <Compile Include="Assets/UAP/Plugins/CustomTTS/Custom_TTS_Template.cs" />
     <Compile Include="Assets/FrostweepGames/GCTextToSpeech/Scripts/Core/Managers/MediaManager.cs" />
-    <Compile Include="Assets/Scripts/HorizontalSelector.cs" />
+    <Compile Include="Assets/Free 2D Cartoon Parallax Background/Demo/Script/ParallaxBackground_0.cs" />
+    <Compile Include="Assets/Scripts/Accessibility/FontSelector.cs" />
     <Compile Include="Assets/LeanTween/Examples/Archived/TestingPunch.cs" />
     <Compile Include="Assets/LeanTween/Framework/LTSeq.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/TestingUnitTests.cs" />
     <Compile Include="Assets/UAP/Examples/UI Navigation Example/Scripts/DemoHelper.cs" />
-    <Compile Include="Assets/Scripts/Accessibility/SettingsManager.cs" />
-    <Compile Include="Assets/Scripts/TabButton.cs" />
     <Compile Include="Assets/UAP/Scripts/Utility/UAP_SelectionGroup.cs" />
     <Compile Include="Assets/Scripts/CSVReader.cs" />
-    <Compile Include="Assets/Scripts/TabGroup.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralUISpace.cs" />
     <Compile Include="Assets/UAP/Scripts/Core/UAP_BaseElement_3D.cs" />
     <Compile Include="Assets/LeanTween/Framework/LeanAudio.cs" />
@@ -91,9 +90,13 @@
     <Compile Include="Assets/UAP/Examples/Match 3 Game Example/Scripts/instructions.cs" />
     <Compile Include="Assets/UAP/Plugins/iOS/iOSTTS.cs" />
     <Compile Include="Assets/UAP/Scripts/UI Components/AccessibleLabel_3D.cs" />
+    <Compile Include="Assets/Scripts/UIPanelSlide.cs" />
     <Compile Include="Assets/Scripts/SceneControl.cs" />
+    <Compile Include="Assets/Cartoon UI/Script/Close.cs" />
+    <Compile Include="Assets/Scripts/SettingsButton.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralSimpleUI.cs" />
     <Compile Include="Assets/FrostweepGames/GCTextToSpeech/Scripts/GCTextToSpeech.cs" />
+    <Compile Include="Assets/Cartoon UI/Script/StoreScript.cs" />
     <Compile Include="Assets/GUI Kit Casual Game/Scripts/Panel.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSplineEndless.cs" />
     <Compile Include="Assets/UAP/Plugins/CustomTTS/WebSpeechAPI_TTS.cs" />
@@ -115,7 +118,6 @@
     <Compile Include="Assets/FrostweepGames/GCTextToSpeech/Scripts/Core/Managers/TextToSpeechManager.cs" />
     <Compile Include="Assets/FrostweepGames/GCTextToSpeech/Scripts/Core/Interfaces/ITextToSpeechManager.cs" />
     <Compile Include="Assets/FrostweepGames/GCTextToSpeech/Scripts/Core/Settings/Enumerators.cs" />
-    <Compile Include="Assets/Scripts/Timer.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSplines.cs" />
     <Compile Include="Assets/Scripts/QuestionData.cs" />
     <Compile Include="Assets/UAP/Plugins/Android/AndroidTTS.cs" />
@@ -123,15 +125,17 @@
     <Compile Include="Assets/Scripts/Accessibility/AudioManager.cs" />
     <Compile Include="Assets/Scripts/Music.cs" />
     <Compile Include="Assets/UAP/Scripts/Utility/UAP_ScrollControl.cs" />
+    <Compile Include="Assets/Scripts/Accessibility/DisplayManager.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralEventsListeners.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSplineTrack.cs" />
     <Compile Include="Assets/Scripts/ClearSaveData.cs" />
     <Compile Include="Assets/FrostweepGames/_Generic/Core/IService.cs" />
     <Compile Include="Assets/Scripts/ButtonSFX.cs" />
+    <Compile Include="Assets/Scripts/Accessibility/FontManager.cs" />
     <Compile Include="Assets/Scripts/QuizManager.cs" />
     <Compile Include="Assets/FrostweepGames/_Generic/Networking/NetworkConstants.cs" />
     <Compile Include="Assets/UAP/Scripts/Core/UAP_BaseElement.cs" />
-    <Compile Include="Assets/Scripts/PopUpControl.cs" />
+    <Compile Include="Assets/Cartoon UI/Script/MainControls.cs" />
     <Compile Include="Assets/Scripts/ButtonAnimation.cs" />
     <Compile Include="Assets/FrostweepGames/_Generic/Networking/NetworkResponse.cs" />
     <Compile Include="Assets/FrostweepGames/GCTextToSpeech/Scripts/Core/Converters/Linear16AudioTool.cs" />
@@ -147,10 +151,12 @@
     <Compile Include="Assets/UAP/Scripts/UI Components/AccessibleButton_3D.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/TestingZLegacyExt.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSplinePerformance.cs" />
+    <Compile Include="Assets/Free 2D Cartoon Parallax Background/Demo/Script/BackgroundControl_0.cs" />
     <Compile Include="Assets/UAP/Plugins/MacOS/MacOSTTS.cs" />
     <Compile Include="Assets/UAP/Scripts/Core/UAP_VirtualKeyboard.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathBezier2d.cs" />
     <Compile Include="Assets/UAP/Scripts/UI Components/AccessibleLabel.cs" />
+    <Compile Include="Assets/Scripts/SubjectManager.cs" />
     <Compile Include="Assets/UAP/Scripts/UI Components/AccessibleDropdown.cs" />
     <Compile Include="Assets/UAP/Scripts/Utility/UAP_CustomTTS.cs" />
     <Compile Include="Assets/UAP/Scripts/Core/UAP_AccessibilityManager.cs" />
@@ -159,12 +165,12 @@
     <Compile Include="Assets/FrostweepGames/GCTextToSpeech/Scripts/Core/Interfaces/IMediaManager.cs" />
     <Compile Include="Assets/UAP/Scripts/UI Components/AccessibleButton.cs" />
     <Compile Include="Assets/FrostweepGames/_Generic/Networking/Networking.cs" />
-    <Compile Include="Assets/Scripts/DialogWindowAnim.cs" />
     <Compile Include="Assets/LeanTween/Framework/LTDescrOptional.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralEasingTypes.cs" />
     <Compile Include="Assets/UAP/Examples/3D Objects Example/Scripts/uGUI3DExampleGameLogic.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralSequencer.cs" />
     <Compile Include="Assets/UAP/Plugins/x86_64/WindowsTTS.cs" />
+    <Compile Include="Assets/Scripts/Accessibility/FontSizeSelector.cs" />
     <Compile Include="Assets/LeanTween/Examples/Archived/OldGUIExamplesCS.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralBasic.cs" />
     <Compile Include="Assets/Scripts/LevelBrowser.cs" />
@@ -193,6 +199,7 @@
     <None Include="Assets/GUI Kit Casual Game/Extensions/TextMesh Pro/Resources/Shaders/TMP_SDF-Surface.shader" />
     <None Include="Assets/GUI Kit Casual Game/Extensions/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
     <None Include="Assets/GUI Kit Casual Game/Extensions/TextMesh Pro/Resources/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets/Adventure UI Kit/Fonts/LICENSE.txt" />
     <None Include="Assets/GUI Kit Casual Game/Extensions/TextMesh Pro/Resources/Shaders/TMP_SDF.shader" />
     <None Include="Assets/GUI Kit Casual Game/Extensions/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
     <None Include="Assets/GUI Kit Casual Game/Extensions/TextMesh Pro/Resources/Shaders/TMPro_Properties.cginc" />

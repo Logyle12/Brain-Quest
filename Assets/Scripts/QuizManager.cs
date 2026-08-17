@@ -8,8 +8,8 @@ public enum RoundResult { Fail, Intermediate, Win }
 public class QuizManager : MonoBehaviour
 {
     [Header("Quiz Data")]
-    public TextAsset quizDataCSV;
-    
+    [SerializeField] private TextAsset csvData;
+
     [Header("Progression")]
     public int starsEarned = 0; 
     private float[] starMultipliers = { 0.25f, 0.3125f, 0.4375f, 1.0f };
@@ -19,7 +19,7 @@ public class QuizManager : MonoBehaviour
     public int totalQuestionsThisRound { get { return selectedQuestions.Count; } }
 
     private string levelSaveKey;
-    private List<QuestionData> allQuestions;
+    private List<QuestionData> allQuestions = new List<QuestionData>();
     private List<QuestionData> selectedQuestions = new List<QuestionData>();
 
     void Start()
@@ -33,28 +33,54 @@ public class QuizManager : MonoBehaviour
         currentQuestionIndex = 0;
         selectedQuestions.Clear();
 
-        string currentCategory = PlayerPrefs.GetString("CurrentCategoryPlaying", "Unknown");
+        // 1. Fetch Subject, Category, and Stage from PlayerPrefs
+        string currentSubject = PlayerPrefs.GetString("CurrentSubject", "English");
+        string currentCategory = PlayerPrefs.GetString("CurrentCategoryPlaying", "Spelling");
         int currentStage = PlayerPrefs.GetInt("CurrentStagePlaying", 0);
-        levelSaveKey = currentCategory + "_Stage_" + currentStage;
         
+        // 2. Generate unique save key
+        levelSaveKey = $"{currentSubject}_{currentCategory}_Stage_{currentStage}";
         starsEarned = PlayerPrefs.GetInt(levelSaveKey + "_Stars", 0);
-        allQuestions = CSVReader.ReadCSV(quizDataCSV);
 
+        // 3. Dynamically Load the precise CSV File
+        int currentLevel = currentStage + 1; 
+        string fileName = $"{currentCategory}_Level_{currentLevel}";
+        csvData = Resources.Load<TextAsset>($"QuizData/{currentSubject}/{currentCategory}/{fileName}");
+
+        if (csvData == null)
+        {
+            Debug.LogError($"[QuizManager] Could not find CSV at: Resources/QuizData/{currentSubject}/{fileName}");
+            return;
+        }
+
+        allQuestions = CSVReader.ReadCSV(csvData);
+
+        // 4. Apply star multipliers
         int index = Mathf.Clamp(starsEarned, 0, starMultipliers.Length - 1);
         float multiplier = starMultipliers[index];
-        int targetCount = Mathf.CeilToInt(allQuestions.Count * multiplier);
+        int amountToLoad = Mathf.CeilToInt(allQuestions.Count * multiplier);
 
-        List<QuestionData> availableQuestions = allQuestions;
-        if (starsEarned < 3)
+        // 5. Filter completed questions
+        // 5. Filter completed questions (only matters while still working toward 3 stars)
+        List<QuestionData> availableQuestions;
+        if (starsEarned >= 3)
+        {
+            // Fully starred: infinite replay, no filtering needed
+            availableQuestions = new List<QuestionData>(allQuestions);
+        }
+        else
         {
             List<int> completedIds = GetCompletedIds(levelSaveKey);
             availableQuestions = allQuestions.Where(q => !completedIds.Contains(q.id)).ToList();
         }
 
+        // 6. SHUFFLE THE AVAILABLE QUESTIONS
         Shuffle(availableQuestions);
-        selectedQuestions = availableQuestions.Take(targetCount).ToList();
 
-        // FIX: Shuffle options so the answer isn't always Option A
+        // 7. Select the required amount
+        selectedQuestions = availableQuestions.Take(amountToLoad).ToList();
+
+        // 8. SHUFFLE THE ANSWER OPTIONS (so correct isn't always Option A)
         foreach (var q in selectedQuestions)
         {
             ShuffleOptions(q);
@@ -63,9 +89,15 @@ public class QuizManager : MonoBehaviour
 
     private void ShuffleOptions(QuestionData q)
     {
+        if (q.options == null || q.options.Length == 0) return;
+
+        // Memorize what the correct text is before scrambling the array
         string correctAnswerText = q.options[q.correctAnswerIndex];
+        
         System.Random rng = new System.Random();
         q.options = q.options.OrderBy(x => rng.Next()).ToArray();
+        
+        // Find the new index of the correct answer
         q.correctAnswerIndex = Array.IndexOf(q.options, correctAnswerText);
     }
 
@@ -73,7 +105,14 @@ public class QuizManager : MonoBehaviour
     {
         System.Random rng = new System.Random();
         int n = list.Count;
-        while (n > 1) { n--; int k = rng.Next(n + 1); T value = list[k]; list[k] = list[n]; list[n] = value; }
+        while (n > 1) 
+        { 
+            n--; 
+            int k = rng.Next(n + 1); 
+            T value = list[k]; 
+            list[k] = list[n]; 
+            list[n] = value; 
+        }
     }
 
     public void ProcessAnswer(bool isCorrect)
@@ -81,8 +120,11 @@ public class QuizManager : MonoBehaviour
         if (isCorrect)
         {
             correctAnswers++;
-            QuestionData q = GetCurrentQuestion();
-            if (q != null) SaveCompletedId(levelSaveKey, q.id);
+            if (starsEarned < 3)
+            {
+                QuestionData q = selectedQuestions[currentQuestionIndex];
+                SaveCompletedId(levelSaveKey, q.id);
+            }
         }
         currentQuestionIndex++;
     }

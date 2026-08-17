@@ -5,12 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - SceneManager
-  - WinState
-  - FailState
-  - EnglishLevels
-  - MathLevels
-  - ScienceLevels
   - GameSelection
+  - Levels
   layers:
   - Default
   - TransparentFX

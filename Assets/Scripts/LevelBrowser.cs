@@ -11,6 +11,16 @@ public class LevelBrowser : MonoBehaviour
     [SerializeField] private Button prevButton;
     [SerializeField] private Button nextButton;
 
+    // Helper property to get a subject-specific save key
+    private string PageSaveKey 
+    {
+        get 
+        {
+            string currentSubject = PlayerPrefs.GetString("CurrentSubject", "English");
+            return $"{currentSubject}_ActivePage";
+        }
+    }
+
     void Start()
     {
         // Setup buttons
@@ -24,12 +34,24 @@ public class LevelBrowser : MonoBehaviour
             levelScene.gameObject.SetActive(false);
         }
 
-        // 1. Load the saved page index
-        pageNumber = PlayerPrefs.GetInt("ActivePage", 0);
-        pageNumber = Mathf.Clamp(pageNumber, 0, levelScenes.Count - 1);
+        // 1. Load the saved page index for this specific subject
+        pageNumber = PlayerPrefs.GetInt(PageSaveKey, 0);
+        
+        // Failsafe in case a subject has fewer pages than the saved index
+        if (levelScenes.Count > 0)
+        {
+            pageNumber = Mathf.Clamp(pageNumber, 0, levelScenes.Count - 1);
+        }
+        else
+        {
+            pageNumber = 0;
+        }
 
         // 2. Set the view
-        levelScenes[pageNumber].SetActive(true);
+        if (levelScenes.Count > 0)
+        {
+            levelScenes[pageNumber].SetActive(true);
+        }
 
         // 3. Update UI
         controlLevelScenes();
@@ -43,8 +65,8 @@ public class LevelBrowser : MonoBehaviour
         pageNumber -= 1;
         levelScenes[pageNumber].SetActive(true);
         
-        // Save the page
-        PlayerPrefs.SetInt("ActivePage", pageNumber);
+        // Save the page for this specific subject
+        PlayerPrefs.SetInt(PageSaveKey, pageNumber);
         controlLevelScenes();
     }
 
@@ -56,8 +78,8 @@ public class LevelBrowser : MonoBehaviour
         pageNumber += 1;
         levelScenes[pageNumber].SetActive(true);
 
-        // Save the page
-        PlayerPrefs.SetInt("ActivePage", pageNumber);
+        // Save the page for this specific subject
+        PlayerPrefs.SetInt(PageSaveKey, pageNumber);
         controlLevelScenes();
     }
 

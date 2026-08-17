@@ -59,7 +59,7 @@
     <UnityVersion>2021.3.45f2</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="/Users/Timo/.vscode/extensions/visualstudiotoolsforunity.vstuc-1.2.2/Analyzers/Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="/Users/Timo/.vscode/extensions/visualstudiotoolsforunity.vstuc-1.3.1/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/UAP/Editor/Accessibility_EditorFunctions.cs" />
@@ -73,6 +73,7 @@
     <Compile Include="Assets/UAP/Editor/Accessibility_TextEdit_Inspector.cs" />
     <Compile Include="Assets/UAP/Editor/Accessibility_Toggle_Inspector.cs" />
     <Compile Include="Assets/UAP/Editor/Accessibility_SelectionGroup_Inspector.cs" />
+    <Compile Include="Assets/Editor/SettingsPanelGenerator.cs" />
     <Compile Include="Assets/UAP/Editor/Accessibility_GameObjectEnabler_Inspector.cs" />
     <Compile Include="Assets/UAP/Editor/Accessibility_InspectorShared.cs" />
     <Compile Include="Assets/UAP/Editor/Accessibility_Button_3D_Inspector.cs" />
