@@ -34,7 +34,7 @@ To run the project locally:
 
 ## Live Preview
 
-[Click here to view the live preview.](https://logyle12.github.io/BuildingBlocks2/)
+[Click here to view the live preview.](https://logyle12.github.io/Brain-Quest/)
 
 ## Usage
 
