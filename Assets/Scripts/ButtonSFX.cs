@@ -4,22 +4,23 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class ButtonSFX : MonoBehaviour
 {
+    // Reference to the AudioSource this button plays its click sound through
     private AudioSource audioSource;
 
     private void Start()
     {
-        // Cache the reference
+        // Cache the reference so we don't call GetComponent every click
         audioSource = GetComponent<AudioSource>();
     }
 
+    // Called when the button is clicked, plays the assigned click sound
     public void ButtonClickedSound()
     {
-        // The clip now lives on the AudioSource itself (assign it in the Inspector),
-        // instead of being duplicated as a separate field on this script.
+        // Only play if a clip has actually been assigned in the Inspector
         if (audioSource.clip != null)
         {
-            // PlayOneShot (rather than Play) so rapid repeated clicks overlap
-            // instead of cutting each other off.
+            // PlayOneShot rather than Play, so rapid repeated clicks overlap
+            // instead of cutting each other off
             audioSource.PlayOneShot(audioSource.clip);
         }
     }

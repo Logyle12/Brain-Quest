@@ -17,10 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/QuizScene.unity
     guid: de4bbcd25a64740458bc5e76ece59c33
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Maths Gameplay/MathLevels.unity
     guid: 3400fc913cde9f74f965e853dc26a6ea
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Science Gameplay/ScienceLevels.unity
     guid: afa2de2d5fa93484796d56a255b55d19
   m_configObjects: {}
