@@ -25,7 +25,7 @@ To run the project locally:
 1. Clone the repository.
 
    ```bash
-   git clone git@github.com:Logyle12/BuildingBlocks2.git
+   git clone git@github.com:Logyle12/Brain-Quest.git
    ```
 
 2. Open the project in Unity.
